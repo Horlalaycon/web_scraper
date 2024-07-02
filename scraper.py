@@ -1,9 +1,33 @@
 #!/usr/bin/python
-# Web Scraper Created by f3ar_0f_th3_unkn0wn (Github: @Horlalaycon )
+# Web Scraper Created by f3ar_0f_th3_unkn0wn (github: @Horlalaycon )
 
 import requests
 import argparse
 from bs4 import BeautifulSoup
+
+banner = r"""
+---------------------------------------------------------------------- 
+|-|----------------------------------------------------------------|-|
+(~| __        __   _                                               |~)
+|~) \ \      / /__| |__        ___  ___ _ __ __ _ _ __   ___ _ __  (~| 
+(~|  \ \ /\ / / _ \ '_ \ _____/ __|/ __| '__/ _` | '_ \ / _ \ '__| |~)
+|~)   \ V  V /  __/ |_) |_____\__ \ (__| | | (_| | |_) |  __/ |    (~|
+(~|    \_/\_/ \___|_.__/      |___/\___|_|  \__,_| .__/ \___|_|    |~)
+|~)                                              |_|               (~|
+|-|----------------------------------------------------------------|-| 
+(~|  Web Scraper for scraping data like links,texts,titles,scripts |~)
+|~)  input-fields on website.                                      |~)
+|-|----------------------------------------------------------------|-|
+|~)     Created by: Ibrahim-Ajimati                                (~|
+|-|----------------------------------------------------------------|-|
+(~|                 A.K.A f3ar_0f_th3_unkn0wn @github              |~)
+----------------------------------------------------------------------
+                             +---------+         -----
+                            +-----------+        |   |
+                           +-------------+       -----
+======================================================================
+======================================================================
+"""
 
 
 # web Scraper Object
@@ -150,7 +174,7 @@ class WebScraper:
 def main():
     data = ''
 # arguments parsing
-    parser = argparse.ArgumentParser(description='Web Scraper ( Created by f3ar_0f_th3_unkn0wn)')
+    parser = argparse.ArgumentParser(description='Web Scraper for scraping data like links,texts,titles on website')
     parser.add_argument('-u', '--url', help='URL to scrape', required=True)
     parser.add_argument('-o', '--output', help='Output file')
     parser.add_argument('-op', '--option', type=int, help='''
@@ -169,15 +193,15 @@ Choose data-type to scrape (1-22): (e.g --option 2)
         [11 - Get Iframes]
         [12 - Get Headings]
         [13 - Get Paragraphs]
-     	[14 - Get lists]
-	    [15 - Get videos]
-	    [16 - Get audio]
-	    [17 - Get canvas]
-	    [18 - Get SVG]
-	    [19 - Get math]
-	    [20. Get frameset]
-	    [21 - Get frame]
-	    [22 - Get noscript]
+        [14 - Get lists]
+        [15 - Get videos]
+        [16 - Get audio]
+        [17 - Get canvas]
+        [18 - Get SVG]
+        [19 - Get math]
+        [20. Get frameset]
+        [21 - Get frame]
+        [22 - Get noscript]
 ''', required=True)
 
     args = parser.parse_args()
@@ -276,7 +300,8 @@ Choose data-type to scrape (1-22): (e.g --option 2)
 
 
 if __name__ == "__main__":
-# handling exception
+    print(banner)
+    # handling exception
     try:
         main()
     except EnvironmentError:
