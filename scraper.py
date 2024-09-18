@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# Web Scraper Created by f3ar_0f_th3_unkn0wn (github: @Horlalaycon )
+# Web Scraper Created by sys_br3ach3r GitHub
 
 import requests
 import argparse
@@ -15,12 +15,12 @@ banner = r"""
 (~|    \_/\_/ \___|_.__/      |___/\___|_|  \__,_| .__/ \___|_|    |~)
 |~)                                              |_|               (~|
 |-|----------------------------------------------------------------|-| 
-(~|  Web Scraper for scraping data like links,texts,titles,scripts |~)
+(~|  Purpose: for scraping data like links,texts,titles,scripts &  |~)
 |~)  input-fields on website.                                      |~)
 |-|----------------------------------------------------------------|-|
-|~)     Created by: Ibrahim-Ajimati                                (~|
+|~)     Created by: sys_br3ach3r                                   (~|
 |-|----------------------------------------------------------------|-|
-(~|                 A.K.A f3ar_0f_th3_unkn0wn @github              |~)
+(~|                 A.K.A @Horlalaycon @github                     |~)
 ----------------------------------------------------------------------
                              +---------+         -----
                             +-----------+        |   |
@@ -173,10 +173,10 @@ class WebScraper:
 # main function to call all other methods
 def main():
     data = ''
-# arguments parsing
-    parser = argparse.ArgumentParser(description='Web Scraper for scraping data like links,texts,titles on website')
-    parser.add_argument('-u', '--url', help='URL to scrape', required=True)
-    parser.add_argument('-o', '--output', help='Output file')
+# parsing arguments
+    parser = argparse.ArgumentParser(prog="Web-Scraper", description=' for scraping data like links,texts,titles on website', formatter_class=argparse.RawTextHelpFormatter, epilog="python scraper.py -u https://example.com -op 2 -o links.txt")
+    parser.add_argument('-u', '--url', help='URL to scrape data from', required=True)
+    parser.add_argument('-o', '--output', help='Output result to file')
     parser.add_argument('-op', '--option', type=int, help='''
 Choose data-type to scrape (1-22): (e.g --option 2) 
 
@@ -283,7 +283,8 @@ Choose data-type to scrape (1-22): (e.g --option 2)
         print("+------------------------------+")
         print(data)
 
-        with open(args.output, 'w') as f:
+        output_file = args.output + ".txt"
+        with open(output_file, 'w') as f:
             if isinstance(data, list):
                 for item in data:
                     f.write(str(item) + '\n')
@@ -296,7 +297,8 @@ Choose data-type to scrape (1-22): (e.g --option 2)
         print("+------------------------------+")
         print("|        Data Found[+]         |")
         print("+------------------------------+")
-        print(f" {data}")
+        for i in data:
+            print(f" {i}")
 
 
 if __name__ == "__main__":
@@ -304,7 +306,7 @@ if __name__ == "__main__":
     # handling exception
     try:
         main()
-    except EnvironmentError:
-        print("+---------------------------------------+")
-        print("| Error! Check your internet connection |")
-        print("+---------------------------------------+")
+    except EnvironmentError as e:
+        print("f+---------------------------------------+")
+        print(f" Error: {e} \nCheck your internet connection ")
+        print(f"+---------------------------------------+")
