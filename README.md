@@ -1,18 +1,15 @@
 # Web Scraper
 - This is a program which can used to scrape data like links videos, images from websites
-
 ## Disclaimer
 - <b>Do not use</b> this  <b>program</b> for <b>illegal activities</b>, <u><b>Educational Purposes only</b></u>
-
 ## usage
 ### python3 scraper.py -u target_url -op 2 
-- use -op or --option to specify the data type to scrape from website
-- use -h or --help to check the number/options for the data type
-- use -o or --output to specify an ouput file
-
+- use -h or --help for help menu (python3 scraper.py --help)
 ## Installation
-- git clone 
-- cd Web_Scraper
-- chmod +x scraper.py
+- ```git clone https://github.com/Horlalaycon/web_scraper.git ```
+- ```cd Web_Scraper```
+- ```pip install -r requirements ```
+- ```chmod +x scraper.py```
+- ```python3 scraper.py -u https://example.com/ -op 2```
 # Author
-- Program Developed by f3ar_0f_th3_unkn0wn @ GitHub https://github.com/Horlalaycon
+- Program Developed by sys_br3ach3r @ GitHub https://github.com/Horlalaycon

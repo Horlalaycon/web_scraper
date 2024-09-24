@@ -15,10 +15,10 @@ banner = r"""
 (~|    \_/\_/ \___|_.__/      |___/\___|_|  \__,_| .__/ \___|_|    |~)
 |~)                                              |_|               (~|
 |-|----------------------------------------------------------------|-| 
-(~|  Purpose: for scraping data like links,texts,titles,scripts &  |~)
-|~)  input-fields on website.                                      |~)
+(~|   for scraping data like links,texts,titles,scripts & input-   |~)
+|~)   fields on website.                                           |~)
 |-|----------------------------------------------------------------|-|
-|~)     Created by: sys_br3ach3r                                   (~|
+|~)   Developed by: sys_br3ach3r                                   (~|
 |-|----------------------------------------------------------------|-|
 (~|                 A.K.A @Horlalaycon @github                     |~)
 ----------------------------------------------------------------------
@@ -26,6 +26,7 @@ banner = r"""
                             +-----------+        |   |
                            +-------------+       -----
 ======================================================================
+  [Note: make sure the url is valid!]
 ======================================================================
 """
 
@@ -275,7 +276,8 @@ Choose data-type to scrape (1-22): (e.g --option 2)
         data = scraper.get_noscript()
 
     else:
-        print("Invalid option! use options specified in the help menu, e.g (--option 2) for scraping links")
+        print(" Error: Invalid option! use options specified in the help menu, e.g (--option 2) for scraping links")
+        quit()
 
     if args.output:
         print("+------------------------------+")
@@ -291,14 +293,20 @@ Choose data-type to scrape (1-22): (e.g --option 2)
             else:
                 f.write(data)
         print(f"+----------------------------------------+")
-        print(f'|     Output saved to {args.output}      ')
+        print(f'|     Output saved to {output_file}      ')
         print(f"+----------------------------------------+")
+
     else:
         print("+------------------------------+")
         print("|        Data Found[+]         |")
         print("+------------------------------+")
-        for i in data:
-            print(f" {i}")
+        if args.option == 1 or args.option == 4:
+            print(f"{data}")
+
+        else:
+            for i in data:
+                print(f"|| {i}")
+        print(f"======================================================")
 
 
 if __name__ == "__main__":
@@ -310,3 +318,8 @@ if __name__ == "__main__":
         print("f+---------------------------------------+")
         print(f" Error: {e} \nCheck your internet connection ")
         print(f"+---------------------------------------+")
+    except KeyboardInterrupt:
+        print(f"+---------------------------------------+")
+        print(f" Error: (Ctrl + c) Aborting Program.")
+        print(f"+---------------------------------------+")
+        quit()
