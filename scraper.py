@@ -1,34 +1,9 @@
 #!/usr/bin/python
-# Web Scraper Created by sys_br3ach3r GitHub
+# Web Scraper by sys_br3ach3r
 
 import requests
 import argparse
 from bs4 import BeautifulSoup
-
-banner = r"""
----------------------------------------------------------------------- 
-|-|----------------------------------------------------------------|-|
-(~| __        __   _                                               |~)
-|~) \ \      / /__| |__        ___  ___ _ __ __ _ _ __   ___ _ __  (~| 
-(~|  \ \ /\ / / _ \ '_ \ _____/ __|/ __| '__/ _` | '_ \ / _ \ '__| |~)
-|~)   \ V  V /  __/ |_) |_____\__ \ (__| | | (_| | |_) |  __/ |    (~|
-(~|    \_/\_/ \___|_.__/      |___/\___|_|  \__,_| .__/ \___|_|    |~)
-|~)                                              |_|               (~|
-|-|----------------------------------------------------------------|-| 
-(~|   for scraping data like links,texts,titles,scripts & input-   |~)
-|~)   fields on website.                                           |~)
-|-|----------------------------------------------------------------|-|
-|~)   Developed by: sys_br3ach3r                                   (~|
-|-|----------------------------------------------------------------|-|
-(~|                 A.K.A @Horlalaycon @github                     |~)
-----------------------------------------------------------------------
-                             +---------+         -----
-                            +-----------+        |   |
-                           +-------------+       -----
-======================================================================
-  [Note: make sure the url is valid!]
-======================================================================
-"""
 
 
 # web Scraper Object
@@ -301,23 +276,30 @@ Choose data-type to scrape (1-22): (e.g --option 2)
         print("|        Data Found[+]         |")
         print("+------------------------------+")
         if args.option == 1 or args.option == 4:
-            print(f"{data}")
+            print(f"| {data}")
 
         else:
             for i in data:
-                print(f"|| {i}")
-        print(f"======================================================")
+                print(f"| {i}")
+        print(f"========================================")
 
 
 if __name__ == "__main__":
-    print(banner)
-    # handling exception
+    # banner
+    print()
+    print("=" * 40)
+    print("	  *****(WEB SCRAPER)*****")
+    print("-" * 40)
+    print("   By: sys_br3ach3r")
+
     try:
         main()
+
     except EnvironmentError as e:
         print("f+---------------------------------------+")
         print(f" Error: {e} \nCheck your internet connection ")
         print(f"+---------------------------------------+")
+
     except KeyboardInterrupt:
         print(f"+---------------------------------------+")
         print(f" Error: (Ctrl + c) Aborting Program.")
