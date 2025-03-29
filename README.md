@@ -16,7 +16,7 @@
 
 ## Installation
 - ```git clone https://github.com/Horlalaycon/web_scraper.git ```
-- ```cd Web_Scraper```
+- ```cd web_scraper```
 - ```pip install -r requirements ```
 - ```chmod +x scraper```
 - ```scraper -u https://example.com/ -op 2```
