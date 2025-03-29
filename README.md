@@ -11,10 +11,8 @@
 ### options:
 - ```-h, --help            		   Show this help message and exit```
 - ```-u, --url 	   		   Specify target url```
-
-- ```-d, --domain 	       		   Specify Domain name```
-- ```-os, --operating_system       Select OS type: [1 = unix/linux], [2 = windows]```
-- ```-o OUTPUT, --output           Save the results to text file```
+- ```-op, --option 	       		   Specify data type to scrape```
+- ```-o, --output           Save the results to text file```
 
 ## Installation
 - ```git clone https://github.com/Horlalaycon/web_scraper.git ```
