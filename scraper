@@ -1,13 +1,8 @@
-#!/usr/bin/env python
-
-import time
+#!/usr/bin/env python3
 import requests
 import argparse
 from bs4 import BeautifulSoup
-from colorama import init, Fore, Back, Style
 
-# initiate colorama
-init()
 
 # web Scraper Object
 class WebScraper:
@@ -153,11 +148,11 @@ class WebScraper:
 def main():
     data = ''
 # parsing arguments
-    parser = argparse.ArgumentParser(prog="scraper", description=' for scraping data like links,texts,titles on website', formatter_class=argparse.RawTextHelpFormatter, epilog="python scraper.py -u https://example.com -op 2 -o links.txt")
+    parser = argparse.ArgumentParser(prog="Web-Scraper", description=' for scraping data like links,texts,titles on website', formatter_class=argparse.RawTextHelpFormatter, epilog="python scraper.py -u https://example.com -op 2 -o links.txt")
     parser.add_argument('-u', '--url', help='URL to scrape data from', required=True)
     parser.add_argument('-o', '--output', help='Output result to file')
     parser.add_argument('-op', '--option', type=int, help='''
-Choose data-type to scrape (1-22): (e.g --option 2)
+Choose data-type to scrape (1-22): (e.g --option 2) 
 
         [1 - Get Title]
         [2 - Get Links]
@@ -191,7 +186,7 @@ Choose data-type to scrape (1-22): (e.g --option 2)
         data = scraper.get_title()
 
     elif args.option == 2:
-        data = scraper.get_links()
+        data = scraper.get_links()        
 
     elif args.option == 3:
         data = scraper.get_images()
@@ -231,7 +226,7 @@ Choose data-type to scrape (1-22): (e.g --option 2)
 
     elif args.option == 15:
         data = scraper.get_videos()
-
+        
     elif args.option == 16:
         data = scraper.get_audio()
 
@@ -258,12 +253,10 @@ Choose data-type to scrape (1-22): (e.g --option 2)
         quit()
 
     if args.output:
-        print("   Found:")
-        if args.option == 1 or args.option == 4:
-            print(f"   {Fore.GREEN}[+]{Style.RESET_ALL} {data}")
-        else:
-            for i in data:
-                print(f"   {Fore.GREEN}[+]{Style.RESET_ALL} {i}")
+        print("+------------------------------+")
+        print("|        Data Found[+]         |")
+        print("+------------------------------+")
+        print(data)
 
         output_file = args.output + ".txt"
         with open(output_file, 'w') as f:
@@ -272,35 +265,41 @@ Choose data-type to scrape (1-22): (e.g --option 2)
                     f.write(str(item) + '\n')
             else:
                 f.write(data)
-
-        print(f"  Results saved to {Fore.GREEN}{output_file}{Style.RESET_ALL}")
+        print(f"+----------------------------------------+")
+        print(f'|     Output saved to {output_file}      ')
+        print(f"+----------------------------------------+")
 
     else:
-        print("   Found:")
+        print("+------------------------------+")
+        print("|        Data Found[+]         |")
+        print("+------------------------------+")
         if args.option == 1 or args.option == 4:
-            print(f"   {Fore.GREEN}[+]{Style.RESET_ALL} {data}")
+            print(f"| {data}")
 
         else:
             for i in data:
-                print(f"   {Fore.GREEN}[+]{Style.RESET_ALL} {i}")
+                print(f"| {i}")
+        print(f"========================================")
 
 
 if __name__ == "__main__":
+    # banner
+    print()
+    print("=" * 40)
+    print("	  *****(WEB SCRAPER)*****")
+    print("-" * 40)
+    print("   By: sys_br3ach3r")
 
     try:
-        # banner
-        print(Fore.BLACK + Back.WHITE + "          *****(WEB SCRAPER)*****         " + Style.RESET_ALL)
-        print(Fore.BLACK + Back.WHITE + "     By: sys_br3ach3r                     " + Style.RESET_ALL)
-
         main()
-        print(f"{Fore.BLACK + Back.WHITE}       Program Completed.                     " + Style.RESET_ALL)
 
     except EnvironmentError as e:
-        print(Fore.RED + f" Error: Check your internet connection\n     {e}")
+        print("f+---------------------------------------+")
+        print(f" Error: {e} \nCheck your internet connection ")
+        print(f"+---------------------------------------+")
 
     except KeyboardInterrupt:
-        abort_countdown = [5, 4, 3, 2, 1]
-        for count in abort_countdown:
-            print(f"\r ({Fore.RED}Ctrl + c{Style.RESET_ALL}) Aborting in {count}", end="")
-            time.sleep(0.5)
+        print(f"+---------------------------------------+")
+        print(f" Error: (Ctrl + c) Aborting Program.")
+        print(f"+---------------------------------------+")
         quit()
